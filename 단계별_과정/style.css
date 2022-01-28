@@ -1,0 +1,187 @@
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar {
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.today {
+    display: flex;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.show {
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.show > .month {
+    padding-left: 10px;
+}
+
+.next,
+.prev {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.week {
+    box-sizing: border-box;
+    height: 5%;
+    outline: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(150px,1000px));
+}
+/*repeat(7, minmax(150px, 800px))*/
+.week>.daycell {
+    display: flex;
+    outline: solid 1px black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 87%;  /*이부분이 문제였음 body태그의 100%여서 문제*/
+    display: grid;
+    grid-template-columns: repeat(7, minmax(150px,1fr));
+    grid-template-rows: repeat(5, minmax(150px,1fr));
+    position: relative;
+}
+
+.day-container {
+    /*day-container*/
+    outline: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    resize: none; /*day-container의 사이즈가 조절되지 않도록 하는 것*/
+    
+    overflow: hidden;
+}
+
+.day-container > .day {
+    font-size: 1.4rem;
+    padding: 5px;
+}
+
+.day-container > .content {
+    width: 90%;
+    height: 80%;
+    /*div는 내용이 없어도 크기가 정해져 있다면 설정이 되는 것?*/
+}
+
+.todo {
+    display: block;
+    width: 230px;
+    height: 20px;
+    margin: 6.3px;
+    padding: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #3AAEFA;
+    text-overflow: ellipsis; /*text-overflow를 사용하기 위해서 조건 정리해두기 
+    1. width값이랑 height값은 고정 2. overflow: hidden으로 영역 감추기 3. white-space: nowrap으로 아랫줄로 내려가지 않도록 하기;*/
+    white-space: nowrap; /*아래로 내려가지 않게 하는 것을 의미함*/
+    overflow: hidden;
+}
+
+.modal_showAllTodo {
+    background-color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    flex-direction: column;
+    font-weight: bold;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+    border-radius: 5px;
+    width: 370px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+}
+
+.modal_showAllTodo > .day {
+    margin: 25px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+.modal_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.modal_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px 100px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    width: 20vw;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    font-size: 5rem;
+    
+}
+
+.modal_textarea {
+    margin: 15px;
+    width: 250px;
+    height: 165px;
+    font-size: 25px;
+    resize: none;
+}
+
+.modify, .replay, .delete {
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>캘린더ver1_틀잡기</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template: repeat(5, 1fr)/ repeat(7, 1fr);
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            border: 3px solid rgba(0, 0, 0, 0.205);
+            font-weight: bold;
+            font-size: 1rem;
+            flex-direction: column;
+        }
+
+
+        .cell>.list {
+            border-top: 3px solid rgba(0, 0, 0, 0.205);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=container>
+
+    </div>
+</body>
+
+<script>
+    const container = document.querySelector('.container');
+    let mon = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let start = 4;
+
+    for (let i = 0; i < start; i++) {
+        let cell = 0;
+        cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.classList.add(`cell-${i}`);
+
+        let day = document.createElement('div');
+        day.classList.add('day');
+        day.classList.add(`day${i}`);
+
+        let list = document.createElement('div');
+        list.classList.add('list');
+        list.classList.add(`list${i}`);
+
+        container.appendChild(cell);
+        cell.appendChild(day);
+        cell.appendChild(list);
+    }
+
+    for (let i = start; i < start + mon[start - 1]; i++) {
+        let cell = 0;
+        cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.classList.add(`cell-${i}`);
+
+        let day = document.createElement('div');
+        day.classList.add('day');
+        day.classList.add(`day${i}`);
+
+        let list = document.createElement('div');
+        list.classList.add('list');
+        list.classList.add(`list${i}`);
+
+        container.appendChild(cell);
+        cell.appendChild(day);
+        cell.appendChild(list);
+    }
+
+    for (let i = 0; i < start; i++) {
+        let cell = document.querySelector(`.cell-${i}`);
+        let day = document.querySelector(`.day${i}`);
+        let list = document.querySelector(`.list${i}`);
+
+    }
+
+
+    for (let i = start; i < start + mon[start - 1]; i++) {
+        let cell = document.querySelector(`.cell-${i}`);
+        let day = document.querySelector(`.day${i}`);
+        day.textContent = i - start + 1;
+        let list = document.querySelector(`.list${i}`);
+        list.textContent = 'content' + (i - start + 1);
+        console.log('day', day, 'list', list);
+    }
+</script>
+
+</html>
