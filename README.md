@@ -1,14 +1,12 @@
 # google_calender 클론 코딩
 ----------------
 ## 📜 프로젝트 소개
-_______________
 구글캘린더를 모델로 자바스크립트를 이용해서 만든 달력
 
 <img width="560" alt="스크린샷 2022-02-01 오전 12 56 09" src="https://user-images.githubusercontent.com/66238470/152011033-5c44276a-e8b6-471c-a5e4-628d008f8781.png">
 
 
 ### 🛠 Stacks
----------------
 <div align=center>
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
